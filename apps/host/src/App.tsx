@@ -1,7 +1,8 @@
 import ReactDOM from "react-dom/client";
+import { ErrorBoundary } from '@mf-lab/error-boundary';
+import { lazy, Suspense } from "react";
 
 import "./index.css";
-import { lazy, Suspense } from "react";
 
 const Widget = lazy(() => import('remote/Widget').then((module) => ({ default: module.Widget })));
 
@@ -10,7 +11,9 @@ export const App = () => (
     <div>Name: host</div>
     <div>Framework: react-19</div>
     <Suspense>
-      <Widget />
+      <ErrorBoundary>
+        <Widget />
+      </ErrorBoundary>
     </Suspense>
   </div>
 );
