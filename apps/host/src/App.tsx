@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import { ErrorBoundary } from '@mf-lab/error-boundary';
-import { lazy, Suspense } from "react";
+import { RemoteGuard } from '@mf-lab/remote-guard';
+import { lazy } from "react";
 
 import "./index.css";
 
@@ -10,11 +10,13 @@ export const App = () => (
   <div className="container">
     <div>Name: host</div>
     <div>Framework: react-19</div>
-    <Suspense>
-      <ErrorBoundary>
-        <Widget />
-      </ErrorBoundary>
-    </Suspense>
+    <RemoteGuard
+      suspenseProps={{
+        fallback: <div>Loading...</div>
+      }}
+    >
+      <Widget />
+    </RemoteGuard>
   </div>
 );
 

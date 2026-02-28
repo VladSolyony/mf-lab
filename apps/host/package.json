@@ -26,6 +26,7 @@
     "@module-federation/enhanced": "*",
     "react": "*",
     "react-dom": "*",
-    "@mf-lab/error-boundary": "*"
+    "@mf-lab/error-boundary": "*",
+    "@mf-lab/remote-guard": "*"
   }
 }
