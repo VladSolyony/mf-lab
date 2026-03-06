@@ -1,6 +1,6 @@
 import { WebpackContainer } from "src/types";
 
-export const loadComponent = async (scope: string, module: string) => {
+export const loadComponent = async <T extends object>(scope: string, module: string) => {
   await __webpack_init_sharing__("default");
 
   const container = (window as unknown as Record<string, WebpackContainer>)[scope];
@@ -9,5 +9,5 @@ export const loadComponent = async (scope: string, module: string) => {
 
   const factory = await container.get(module);
 
-  return factory();
+  return factory() as T;
 }

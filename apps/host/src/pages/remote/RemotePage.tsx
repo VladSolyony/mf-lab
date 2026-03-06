@@ -2,6 +2,7 @@
 import { RemoteGuard } from '@mf-lab/remote-guard';
 import { lazy } from "react";
 import { loadComponent, loadRemote } from '@mf-lab/remote-loader';
+import { RemoteModule } from '@mf-lab/remote-types';
 
 import "../../index.css";
 
@@ -11,7 +12,7 @@ const Widget = lazy(async () => {
     "remote"
   );
 
-  const module = await loadComponent('remote', './Widget');
+  const module = await loadComponent<RemoteModule>('remote', './Widget');
   return ({ default: module.Widget });
 });
 

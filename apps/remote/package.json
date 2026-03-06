@@ -20,10 +20,10 @@
     "postcss-loader": "*",
     "react-refresh": "*",
     "ts-node": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "@mf-lab/remote-types": "*"
   },
   "dependencies": {
-    "@module-federation/enhanced": "*",
     "react": "*",
     "react-dom": "*"
   }
