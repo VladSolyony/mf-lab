@@ -4,5 +4,5 @@ export const mfConfig = {
     './Widget': './src/Widget.tsx'
   },
   shared: ["react", "react-dom"],
-  filename: "remoteEntry.js",
+  filename: "remoteEntry-v1.js",
 };

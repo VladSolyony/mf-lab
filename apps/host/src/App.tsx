@@ -1,25 +1,24 @@
 import ReactDOM from "react-dom/client";
-import { RemoteGuard } from '@mf-lab/remote-guard';
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import { loadRemotePage } from "./pages/remote";
 import { lazy } from "react";
+import { loadMainPage } from "./pages/main";
 
-import "./index.css";
+const LazyRemotePage = lazy(loadRemotePage);
+const LazyMainPage = lazy(loadMainPage);
 
-const Widget = lazy(() => import('remote/Widget').then((module) => ({ default: module.Widget })));
-
-export const App = () => (
-  <div className="container">
-    <div>Name: host</div>
-    <div>Framework: react-19</div>
-    <RemoteGuard
-      suspenseProps={{
-        fallback: <div>Loading...</div>
-      }}
-    >
-      <Widget />
-    </RemoteGuard>
-  </div>
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LazyMainPage />,
+  },
+  {
+    path: '/remote',
+    element: <LazyRemotePage />,
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
 
-root.render(<App />);
+root.render(<RouterProvider router={router} />);

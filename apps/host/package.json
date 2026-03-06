@@ -27,6 +27,8 @@
     "react": "*",
     "react-dom": "*",
     "@mf-lab/error-boundary": "*",
-    "@mf-lab/remote-guard": "*"
+    "@mf-lab/remote-guard": "*",
+    "@mf-lab/remote-loader": "*",
+    "react-router": "*"
   }
 }
